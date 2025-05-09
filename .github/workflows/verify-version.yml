@@ -1,0 +1,41 @@
+name: 'Verify Version'
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  verify-version:
+    name: 'Verify Version on main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 'Checkout source code'
+        uses: 'actions/checkout@v2'
+        with:
+          fetch-depth: 2
+
+      - name: 'Setup Node.js'
+        uses: 'actions/setup-node@v2'
+        with:
+          node-version: '14'
+
+      - name: 'Verify version bump'
+        id: verify-bump
+        run: |
+          git diff HEAD^ HEAD -- package.json | grep '"version":'
+          if [ $? -ne 0 ]; then
+            echo "No version change detected in package.json"
+            exit 1
+          fi
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: 'Create Git tag'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag -a v${{ steps.verify-bump.outputs.new_version }} -m "Version ${{ steps.verify-bump.outputs.new_version }}"
+          git push origin v${{ steps.verify-bump.outputs.new_version }}

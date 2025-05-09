@@ -4,7 +4,7 @@ import { experimental_createMCPClient, generateText } from 'ai'
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
 
 const anthropic = createAnthropic({ apiKey: PRIVATE_ANTHROPIC_KEY })
-const model = anthropic('claude-3-7-sonnet-20250219')
+const model = anthropic('claude-3-5-haiku-latest')
 
 export const actions = {
 	mcp: async ({ request, url }) => {
