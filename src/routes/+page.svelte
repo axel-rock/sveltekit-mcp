@@ -40,7 +40,7 @@
 		}}
 	>
 	<p>Type in a prompt. Ask for a roll of dice to trigger the demo MCP tool.</p>
-	
+
 	<label for="prompt">Prompt:</label>
 	<input type="text" name="prompt" id="prompt" bind:value={prompt} placeholder="Roll a 6 face dice" />
 		<button type="submit">Submit</button>
@@ -65,5 +65,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	pre {
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		max-width: 100%;
 	}
 </style>
