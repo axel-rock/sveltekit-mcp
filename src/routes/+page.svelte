@@ -51,7 +51,7 @@
 </main>
 
 <style>
-	:global(body) {
+	:global(:root) {
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		font-optical-sizing: auto;
 		color-scheme: light dark;
