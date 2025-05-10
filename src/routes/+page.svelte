@@ -54,6 +54,7 @@
 	:global(body) {
 		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		font-optical-sizing: auto;
+		color-scheme: light dark;
 	}
 
 	main, header {
