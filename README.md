@@ -31,7 +31,7 @@ Follow these steps to get the project up and running on your local machine.
 1.  **Node.js and pnpm**: Ensure you have Node.js (v18 or later recommended) and pnpm installed.
 2.  **API Keys**:
     - You'll need an **Anthropic API key** (or an alternative LLM provider key if you adapt the client).
-    - A **Redis URL** is required by the `@vercel/mcp-adapter` for certain transports (like SSE) that manage state. Services like [Upstash](https://upstash.com/) offer free tiers.
+    - A **Redis URL** is required by the `@vercel/mcp-adapter` for certain transports (like SSE) that manage state. Services like [Upstash](https://upstash.com/) offer free tiers. As of `@vercel/mcp-adapter@0.4.1`, the Redis URL is no longer needed when using streamableHTTP.
     - Copy the `.env.example` file to `.env` and fill in your keys:
       ```bash
       cp .env.example .env

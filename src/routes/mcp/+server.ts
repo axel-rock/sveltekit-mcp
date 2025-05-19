@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import type { RequestHandler } from './$types'
 import { createMcpHandler } from '@vercel/mcp-adapter'
-import { PRIVATE_REDIS_URL } from '$env/static/private'
 
 const handler = createMcpHandler(
 	(server) => {
@@ -23,7 +22,6 @@ const handler = createMcpHandler(
 		maxDuration: 5,
 		streamableHttpEndpoint: '/mcp',
 		verboseLogs: true,
-		redisUrl: PRIVATE_REDIS_URL,
 	},
 )
 
